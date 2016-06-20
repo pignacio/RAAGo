@@ -26,7 +26,15 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='fjn603+t9_-n7-@+!ojfh)lwtx--#bdec
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres://aago_ranking:aago_ranking@localhost/aago_ranking'),
+    #'default': env.db('DATABASE_URL', default='postgres://aago_ranking:aago_ranking@localhost/aago_ranking'),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'RAAGo',
+        'USER': 'django-RAAGo',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
